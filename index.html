@@ -1,215 +1,424 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Group</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<title>Apex Group</title>
 
-        body {
-            background: #111;
-            color: white;
-        }
+<style>
 
-        header {
-            background: #000;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-        header h1 {
-            color: #00aaff;
-        }
+body {
+    background: #0b1114;
+    color: white;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            transition: 0.3s;
-        }
 
-        nav a:hover {
-            color: #00aaff;
-        }
+/* HEADER */
 
-        .hero {
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(
-                rgba(0,0,0,0.7),
-                rgba(0,0,0,0.7)
-            ),
-            url("background.jpg");
+header {
+    background: #0C303C;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top:0;
+}
 
-            background-size: cover;
-            background-position: center;
-        }
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
 
-        .hero h2 {
-            font-size: 50px;
-        }
+nav a {
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:bold;
+}
 
-        .hero p {
-            margin-top: 20px;
-            font-size: 20px;
-            color: #ccc;
-        }
+nav a:hover {
+    color:#7ccbdc;
+}
 
-        .button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 30px;
-            background: #00aaff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
 
-        section {
-            padding: 60px 10%;
-        }
+/* HERO */
 
-        .cards {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.hero {
+    height: 70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
 
-        .card {
-            background: #1b1b1b;
-            padding: 30px;
-            width: 300px;
-            border-radius: 10px;
-            text-align: center;
-        }
+    background:
+    linear-gradient(
+        rgba(12,48,60,0.8),
+        rgba(0,0,0,0.8)
+    );
+}
 
-        .card h3 {
-            color: #00aaff;
-            margin-bottom: 15px;
-        }
+.hero h1 {
+    font-size:55px;
+}
 
-        footer {
-            background: #000;
-            text-align: center;
-            padding: 20px;
-            color: #aaa;
-        }
+.hero p {
+    margin-top:20px;
+    font-size:22px;
+    color:#ccc;
+}
 
-    </style>
+
+/* SECTIONS */
+
+section {
+    padding:70px 12%;
+}
+
+
+.title {
+    color:#7ccbdc;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+
+.text {
+    line-height:1.8;
+    color:#ddd;
+}
+
+
+/* SECURITY CARDS */
+
+.cards {
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+
+.card {
+
+    background:#111b20;
+    border:1px solid #0C303C;
+    padding:30px;
+    border-radius:10px;
+
+    flex:1;
+    min-width:280px;
+}
+
+
+.card h3 {
+    color:#7ccbdc;
+    margin-bottom:15px;
+}
+
+
+/* BUTTON */
+
+.button {
+
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 30px;
+
+    background:#0C303C;
+    color:white;
+
+    text-decoration:none;
+    border-radius:5px;
+
+}
+
+.button:hover {
+    background:#164b5d;
+}
+
+
+/* FORM */
+
+input, textarea {
+
+    width:100%;
+    padding:15px;
+    margin-top:10px;
+    margin-bottom:20px;
+
+    background:#111b20;
+    border:none;
+    color:white;
+
+}
+
+
+button {
+
+    padding:15px 40px;
+    background:#0C303C;
+    border:none;
+    color:white;
+    cursor:pointer;
+
+}
+
+
+/* FOOTER */
+
+footer {
+
+    background:#0C303C;
+    padding:20px;
+    text-align:center;
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<header>
-    <h1>Apex Group</h1>
 
-    <nav>
-        <a href="#about">O nás</a>
-        <a href="#services">Služby</a>
-        <a href="#contact">Kontakt</a>
-    </nav>
+<header>
+
+<div class="logo">
+Apex Group
+</div>
+
+
+<nav>
+
+<a href="#group">Apex Group</a>
+
+<a href="#security">Apex Security</a>
+
+<a href="#club">Apex Club</a>
+
+<a href="#contact">Kontakty</a>
+
+</nav>
+
 </header>
+
 
 
 <div class="hero">
 
-    <div>
-        <h2>Profesionální služby</h2>
+<div>
 
-        <p>
-            Bezpečnost, technologie a spolehlivá řešení.
-        </p>
+<h1>Apex Group</h1>
 
-        <a class="button" href="#contact">
-            Kontaktovat nás
-        </a>
+<p>
+Profesionální služby. Bezpečnost. Technologie.
+</p>
 
-    </div>
+</div>
 
 </div>
 
 
-<section id="about">
 
-    <h2>O společnosti</h2>
-
-    <br>
-
-    <p>
-        Apex Group poskytuje profesionální služby
-        zaměřené na bezpečnost, technologie a podporu klientů.
-        Naším cílem je kvalita, spolehlivost a důvěra.
-    </p>
-
-</section>
+<section id="group">
 
 
+<h2 class="title">
+Apex Group
+</h2>
 
-<section id="services">
 
-<h2>Naše služby</h2>
+<h3>
+O společnosti
+</h3>
 
 <br>
 
+
+<p class="text">
+
+Naše společnost se specializuje na poskytování spolehlivých služeb v oblasti elektroinstalací, rozvozu a zabezpečení objektů.
+
+<br><br>
+
+Zajišťujeme profesionální elektro práce, od běžných oprav až po komplexní řešení elektrických instalací. Dbáme na kvalitu provedení, bezpečnost a spokojenost našich zákazníků.
+
+<br><br>
+
+Součástí našich služeb je také rozvoz po celém Red County, kde garantujeme rychlé a spolehlivé doručení zásilek či materiálu podle požadavků klienta.
+
+<br><br>
+
+Dále nabízíme hlídání a zabezpečení objektů v rámci Red County, kdy se staráme o ochranu majetku, kontrolu objektů a prevenci proti nežádoucím událostem.
+
+<br><br>
+
+Naším cílem je poskytovat profesionální, dostupné a důvěryhodné služby, na které se mohou zákazníci spolehnout.
+
+</p>
+
+
+</section>
+
+
+
+
+
+<section id="security">
+
+
+<h2 class="title">
+Apex Security
+</h2>
+
+
 <div class="cards">
 
-    <div class="card">
-        <h3>Apex Security</h3>
-        <p>
-            Ochrana objektů, dohled a bezpečnostní služby.
-        </p>
-    </div>
+
+<div class="card">
+
+<h3>
+Informace
+</h3>
 
 
-    <div class="card">
-        <h3>Elektrika</h3>
-        <p>
-            Elektro práce, instalace a servis.
-        </p>
-    </div>
+<p class="text">
 
+Naše společnost se specializuje také na výrobu moderních lokátorů a sledovacích zařízení, která slouží k efektivnímu zabezpečení majetku, vozidel a důležitých předmětů.
 
-    <div class="card">
-        <h3>Lokátory</h3>
-        <p>
-            Výroba moderních lokalizačních zařízení.
-        </p>
-    </div>
+<br><br>
+
+Vyvíjíme a vyrábíme spolehlivé lokalizační systémy, které umožňují přesné určování polohy a zajišťují lepší kontrolu nad svěřeným majetkem.
+
+<br><br>
+
+Naše lokátory nacházejí využití v oblasti ochrany vozidel, zabezpečení objektů, sledování vybavení a dalších bezpečnostních řešení.
+
+</p>
 
 </div>
 
+
+
+<div class="card">
+
+<h3>
+Objednávka
+</h3>
+
+
+<form>
+
+<input placeholder="Jméno">
+
+<input placeholder="Kontakt">
+
+<input placeholder="Typ zařízení">
+
+<textarea placeholder="Popis objednávky"></textarea>
+
+
+<button>
+Odeslat objednávku
+</button>
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
 </section>
+
+
+
+
+
+<section id="club">
+
+
+<h2 class="title">
+Apex Club
+</h2>
+
+
+<p class="text">
+
+Sídlíme v Los Santos, u horní benzínky.
+
+</p>
+
+
+</section>
+
+
 
 
 
 <section id="contact">
 
-<h2>Kontakt</h2>
+
+<h2 class="title">
+Kontakty
+</h2>
+
+
+<h3>
+Vedení:
+</h3>
 
 <br>
 
-<p>
-Email: info@apexgroup.cz
+
+<p class="text">
+
+<b>Matthew Hill</b> - Jednatel
+
+<br>
+
+<b>Alexander Hill</b> - Generální ředitel
+
+<br>
+
+<b>Noemi Graziani</b> - Výkonný ředitel Apex Club
+
+<br>
+
+<b>Jacob O'Brien</b> - Výkonný ředitel Apex Security
+
+
+<br><br>
+
+
+<b>Email:</b>
+
+<br>
+
+matthew.hill@post.ic
+
+<br>
+
+alexander.hill@post.ic
+
+
 </p>
 
-<p>
-Telefon: +420 000 000 000
-</p>
 
 </section>
+
 
 
 
