@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,179 +9,166 @@
 
 <style>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
-body {
-    background: #0b1114;
-    color: white;
+body{
+    background:#080f12;
+    color:white;
 }
 
-
-/* HEADER */
-
-header {
-    background: #0C303C;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
+header{
+    background:#0C303C;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
     top:0;
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: bold;
+.logo{
+    font-size:28px;
+    font-weight:bold;
 }
 
-nav a {
+nav a{
     color:white;
     text-decoration:none;
     margin-left:25px;
     font-weight:bold;
 }
 
-nav a:hover {
-    color:#7ccbdc;
+nav a:hover{
+    color:#78c8dc;
 }
 
 
-/* HERO */
+.hero{
 
-.hero {
-    height: 70vh;
+    height:70vh;
+
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
 
     background:
     linear-gradient(
-        rgba(12,48,60,0.8),
-        rgba(0,0,0,0.8)
+    rgba(12,48,60,.85),
+    rgba(0,0,0,.9)
     );
+
 }
 
-.hero h1 {
-    font-size:55px;
+
+.hero h1{
+    font-size:60px;
 }
 
-.hero p {
-    margin-top:20px;
+.hero p{
     font-size:22px;
-    color:#ccc;
+    margin-top:20px;
 }
 
 
-/* SECTIONS */
-
-section {
+section{
     padding:70px 12%;
 }
 
 
-.title {
-    color:#7ccbdc;
-    font-size:32px;
+.title{
+    color:#78c8dc;
+    font-size:35px;
     margin-bottom:25px;
 }
 
 
-.text {
+.text{
     line-height:1.8;
     color:#ddd;
 }
 
 
-/* SECURITY CARDS */
 
-.cards {
-    display:flex;
-    gap:30px;
-    flex-wrap:wrap;
-}
+.cards{
 
-
-.card {
-
-    background:#111b20;
-    border:1px solid #0C303C;
-    padding:30px;
-    border-radius:10px;
-
-    flex:1;
-    min-width:280px;
-}
-
-
-.card h3 {
-    color:#7ccbdc;
-    margin-bottom:15px;
-}
-
-
-/* BUTTON */
-
-.button {
-
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 30px;
-
-    background:#0C303C;
-    color:white;
-
-    text-decoration:none;
-    border-radius:5px;
-
-}
-
-.button:hover {
-    background:#164b5d;
-}
-
-
-/* FORM */
-
-input, textarea {
-
-    width:100%;
-    padding:15px;
-    margin-top:10px;
-    margin-bottom:20px;
-
-    background:#111b20;
-    border:none;
-    color:white;
+display:flex;
+gap:30px;
+flex-wrap:wrap;
 
 }
 
 
-button {
 
-    padding:15px 40px;
-    background:#0C303C;
-    border:none;
-    color:white;
-    cursor:pointer;
+.card{
+
+background:#10191d;
+border:1px solid #0C303C;
+border-radius:10px;
+padding:30px;
+flex:1;
+min-width:300px;
+
+}
+
+
+
+.card h3{
+
+color:#78c8dc;
+margin-bottom:20px;
 
 }
 
 
-/* FOOTER */
 
-footer {
+input,select,textarea{
 
-    background:#0C303C;
-    padding:20px;
-    text-align:center;
+width:100%;
+padding:14px;
+margin-bottom:15px;
+
+background:#080f12;
+border:1px solid #0C303C;
+
+color:white;
 
 }
+
+
+button{
+
+background:#0C303C;
+border:none;
+padding:15px 30px;
+
+color:white;
+cursor:pointer;
+
+}
+
+
+button:hover{
+
+background:#164b5d;
+
+}
+
+
+
+footer{
+
+background:#0C303C;
+text-align:center;
+padding:20px;
+
+}
+
 
 </style>
 
@@ -200,11 +188,8 @@ Apex Group
 <nav>
 
 <a href="#group">Apex Group</a>
-
 <a href="#security">Apex Security</a>
-
 <a href="#club">Apex Club</a>
-
 <a href="#contact">Kontakty</a>
 
 </nav>
@@ -220,7 +205,7 @@ Apex Group
 <h1>Apex Group</h1>
 
 <p>
-Profesionální služby. Bezpečnost. Technologie.
+Profesionální služby v Red County
 </p>
 
 </div>
@@ -250,19 +235,19 @@ Naše společnost se specializuje na poskytování spolehlivých služeb v oblas
 
 <br><br>
 
-Zajišťujeme profesionální elektro práce, od běžných oprav až po komplexní řešení elektrických instalací. Dbáme na kvalitu provedení, bezpečnost a spokojenost našich zákazníků.
+Zajišťujeme profesionální elektro práce, od běžných oprav až po komplexní řešení elektrických instalací.
 
 <br><br>
 
-Součástí našich služeb je také rozvoz po celém Red County, kde garantujeme rychlé a spolehlivé doručení zásilek či materiálu podle požadavků klienta.
+Součástí našich služeb je také rozvoz po celém Red County, kde garantujeme rychlé a spolehlivé doručení zásilek či materiálu.
 
 <br><br>
 
-Dále nabízíme hlídání a zabezpečení objektů v rámci Red County, kdy se staráme o ochranu majetku, kontrolu objektů a prevenci proti nežádoucím událostem.
+Dále nabízíme hlídání a zabezpečení objektů v rámci Red County.
 
 <br><br>
 
-Naším cílem je poskytovat profesionální, dostupné a důvěryhodné služby, na které se mohou zákazníci spolehnout.
+Naším cílem je poskytovat profesionální, dostupné a důvěryhodné služby.
 
 </p>
 
@@ -281,6 +266,7 @@ Apex Security
 </h2>
 
 
+
 <div class="cards">
 
 
@@ -293,15 +279,21 @@ Informace
 
 <p class="text">
 
-Naše společnost se specializuje také na výrobu moderních lokátorů a sledovacích zařízení, která slouží k efektivnímu zabezpečení majetku, vozidel a důležitých předmětů.
+Specializujeme se na výrobu moderních lokátorů a sledovacích zařízení.
 
 <br><br>
 
-Vyvíjíme a vyrábíme spolehlivé lokalizační systémy, které umožňují přesné určování polohy a zajišťují lepší kontrolu nad svěřeným majetkem.
+Naše systémy umožňují přesné určování polohy a lepší kontrolu nad majetkem.
 
 <br><br>
 
-Naše lokátory nacházejí využití v oblasti ochrany vozidel, zabezpečení objektů, sledování vybavení a dalších bezpečnostních řešení.
+Využití:
+<br>
+• ochrana vozidel
+<br>
+• zabezpečení objektů
+<br>
+• sledování vybavení
 
 </p>
 
@@ -309,22 +301,66 @@ Naše lokátory nacházejí využití v oblasti ochrany vozidel, zabezpečení o
 
 
 
+
+
 <div class="card">
+
 
 <h3>
 Objednávka
 </h3>
 
 
-<form>
 
-<input placeholder="Jméno">
+<form id="orderForm">
 
-<input placeholder="Kontakt">
 
-<input placeholder="Typ zařízení">
+<input id="name"
+placeholder="Jméno a příjmení"
+required>
 
-<textarea placeholder="Popis objednávky"></textarea>
+
+<input id="contact"
+placeholder="Kontakt (post.ic / telefonní číslo)"
+required>
+
+
+<input id="count"
+type="number"
+min="1"
+placeholder="Počet kusů"
+required>
+
+
+
+<select id="delivery">
+
+<option value="Normální doručení">
+Normální doručení
+</option>
+
+<option value="Expresní doručení (+15 000$)">
+Expresní doručení (+15 000$)
+</option>
+
+</select>
+
+
+
+<select id="payment">
+
+<option value="Kartou">
+Kartou
+</option>
+
+
+<option value="Hotově (+15 000$)">
+Hotově (+15 000$)
+</option>
+
+
+</select>
+
 
 
 <button>
@@ -376,28 +412,25 @@ Kontakty
 </h2>
 
 
-<h3>
-Vedení:
-</h3>
-
-<br>
-
-
 <p class="text">
 
-<b>Matthew Hill</b> - Jednatel
+<b>Vedení:</b>
+
+<br><br>
+
+Matthew Hill - Jednatel
 
 <br>
 
-<b>Alexander Hill</b> - Generální ředitel
+Alexander Hill - Generální ředitel
 
 <br>
 
-<b>Noemi Graziani</b> - Výkonný ředitel Apex Club
+Noemi Graziani - Výkonný ředitel Apex Club
 
 <br>
 
-<b>Jacob O'Brien</b> - Výkonný ředitel Apex Security
+Jacob O'Brien - Výkonný ředitel Apex Security
 
 
 <br><br>
@@ -422,11 +455,160 @@ alexander.hill@post.ic
 
 
 
+
 <footer>
 
 © 2026 Apex Group
 
 </footer>
+
+
+
+
+<script>
+
+
+const webhook = "SEM_DEJ_NOVÝ_WEBHOOK";
+
+
+
+document
+.getElementById("orderForm")
+.addEventListener("submit",function(e){
+
+
+e.preventDefault();
+
+
+
+let name =
+document.getElementById("name").value;
+
+
+let contact =
+document.getElementById("contact").value;
+
+
+let count =
+Number(document.getElementById("count").value);
+
+
+let delivery =
+document.getElementById("delivery").value;
+
+
+let payment =
+document.getElementById("payment").value;
+
+
+
+let price =
+count * 2000000;
+
+
+
+if(delivery.includes("15 000"))
+price +=15000;
+
+
+if(payment.includes("15 000"))
+price +=15000;
+
+
+
+let data = {
+
+
+username:"Apex Security",
+
+
+embeds:[{
+
+title:"📡 Nová objednávka lokátoru",
+
+color:7959612,
+
+
+fields:[
+
+{
+name:"👤 Jméno",
+value:name
+},
+
+{
+name:"📞 Kontakt",
+value:contact
+},
+
+{
+name:"📦 Počet kusů",
+value:count+" ks"
+},
+
+{
+name:"💰 Cena",
+value:price.toLocaleString()+" $"
+},
+
+{
+name:"🚚 Doručení",
+value:delivery
+},
+
+{
+name:"💳 Platba",
+value:payment
+}
+
+],
+
+
+timestamp:new Date()
+
+}]
+
+
+};
+
+
+
+fetch(webhook,{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify(data)
+
+
+})
+
+.then(()=>{
+
+alert("Objednávka odeslána!");
+
+document
+.getElementById("orderForm")
+.reset();
+
+})
+
+
+.catch(()=>{
+
+alert("Chyba při odesílání.");
+
+});
+
+
+});
+
+
+</script>
+
 
 
 </body>
