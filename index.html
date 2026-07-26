@@ -402,9 +402,10 @@ Hotově (+15 000$)
 
 
 
-<button>
-Odeslat objednávku
-</button>
+<p id="totalPrice" style="margin-bottom: 15px; font-weight: bold;">Celková cena: 0 $</p>
+	<button>
+	Odeslat objednávku
+	</button>
 
 
 
@@ -515,7 +516,37 @@ alexander.hill@post.ic
 <script>
 
 
-const webhook = "https://discord.com/api/webhooks/1531020612875849819/-oh4IV2xXSkfdl1g2uplK2HtJ9bDoS4bXesF4_iYdpKnR9DCpi0rY0Lv3ypCP1H_SIEq";
+const webhook = "TVŮJ_WEBHOOK";
+
+const BASE_PRICE_PER_UNIT = 2000000;
+const DELIVERY_SURCHARGE = 15000;
+const PAYMENT_SURCHARGE = 15000;
+
+function updatePrice() {
+    let count = Number(document.getElementById("count").value);
+    let delivery = document.getElementById("delivery").value;
+    let payment = document.getElementById("payment").value;
+
+    let currentPrice = count * BASE_PRICE_PER_UNIT;
+
+    if (delivery.includes("15 000")) {
+        currentPrice += DELIVERY_SURCHARGE;
+    }
+
+    if (payment.includes("15 000")) {
+        currentPrice += PAYMENT_SURCHARGE;
+    }
+
+    document.getElementById("totalPrice").innerText = `Celková cena: ${currentPrice.toLocaleString()} $`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    updatePrice(); // Initial price calculation on page load
+
+    document.getElementById("count").addEventListener("input", updatePrice);
+    document.getElementById("delivery").addEventListener("change", updatePrice);
+    document.getElementById("payment").addEventListener("change", updatePrice);
+});
 
 
 
@@ -550,26 +581,15 @@ document.getElementById("payment").value;
 
 
 
-let price =
-count * 2000000;
+    let price = count * BASE_PRICE_PER_UNIT;
 
+    if (delivery.includes("15 000")) {
+        price += DELIVERY_SURCHARGE;
+    }
 
-
-if(delivery.includes("15 000"))
-{
-
-price += 15000;
-
-}
-
-
-
-if(payment.includes("15 000"))
-{
-
-price += 15000;
-
-}
+    if (payment.includes("15 000")) {
+        price += PAYMENT_SURCHARGE;
+    }
 
 
 
