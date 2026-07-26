@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
 
 <meta charset="UTF-8">
@@ -21,45 +22,57 @@ body{
     color:white;
 }
 
+
 header{
+
     background:#0C303C;
     padding:20px 50px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    position:sticky;
-    top:0;
+
 }
+
 
 .logo{
-    font-size:28px;
+
+    font-size:30px;
     font-weight:bold;
+
 }
+
 
 nav a{
+
     color:white;
     text-decoration:none;
-    margin-left:25px;
-    font-weight:bold;
+    margin-left:20px;
+
 }
 
+
 nav a:hover{
-    color:#78c8dc;
+
+    color:#7ac9dd;
+
 }
+
 
 
 .hero{
 
-    height:70vh;
+    height:60vh;
 
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
 
     background:
     linear-gradient(
-    rgba(12,48,60,.85),
+    rgba(12,48,60,.9),
     rgba(0,0,0,.9)
     );
 
@@ -67,39 +80,51 @@ nav a:hover{
 
 
 .hero h1{
+
     font-size:60px;
+
 }
 
+
 .hero p{
+
     font-size:22px;
     margin-top:20px;
+
 }
+
 
 
 section{
-    padding:70px 12%;
+
+    padding:60px 12%;
+
 }
 
 
-.title{
-    color:#78c8dc;
-    font-size:35px;
+
+h2{
+
+    color:#7ac9dd;
     margin-bottom:25px;
+
 }
 
 
 .text{
+
     line-height:1.8;
     color:#ddd;
+
 }
 
 
 
 .cards{
 
-display:flex;
-gap:30px;
-flex-wrap:wrap;
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
 
 }
 
@@ -107,12 +132,16 @@ flex-wrap:wrap;
 
 .card{
 
-background:#10191d;
-border:1px solid #0C303C;
-border-radius:10px;
-padding:30px;
-flex:1;
-min-width:300px;
+    background:#10191d;
+
+    border:1px solid #0C303C;
+
+    border-radius:10px;
+
+    padding:30px;
+
+    flex:1;
+    min-width:300px;
 
 }
 
@@ -120,42 +149,51 @@ min-width:300px;
 
 .card h3{
 
-color:#78c8dc;
-margin-bottom:20px;
+    color:#7ac9dd;
+    margin-bottom:20px;
 
 }
 
 
 
-input,select,textarea{
+input,
+select,
+textarea{
 
-width:100%;
-padding:14px;
-margin-bottom:15px;
+    width:100%;
 
-background:#080f12;
-border:1px solid #0C303C;
+    padding:15px;
 
-color:white;
+    margin-bottom:15px;
+
+    background:#080f12;
+
+    color:white;
+
+    border:1px solid #0C303C;
 
 }
+
 
 
 button{
 
-background:#0C303C;
-border:none;
-padding:15px 30px;
+    background:#0C303C;
 
-color:white;
-cursor:pointer;
+    color:white;
+
+    border:none;
+
+    padding:15px 30px;
+
+    cursor:pointer;
 
 }
 
 
 button:hover{
 
-background:#164b5d;
+    background:#164b5d;
 
 }
 
@@ -163,9 +201,11 @@ background:#164b5d;
 
 footer{
 
-background:#0C303C;
-text-align:center;
-padding:20px;
+    background:#0C303C;
+
+    padding:20px;
+
+    text-align:center;
 
 }
 
@@ -178,6 +218,7 @@ padding:20px;
 <body>
 
 
+
 <header>
 
 <div class="logo">
@@ -188,9 +229,12 @@ Apex Group
 <nav>
 
 <a href="#group">Apex Group</a>
+
 <a href="#security">Apex Security</a>
+
 <a href="#club">Apex Club</a>
-<a href="#contact">Kontakty</a>
+
+<a href="#contact">Kontakt</a>
 
 </nav>
 
@@ -198,35 +242,34 @@ Apex Group
 
 
 
+
 <div class="hero">
 
 <div>
 
-<h1>Apex Group</h1>
+<h1>
+Apex Group
+</h1>
 
 <p>
-Profesionální služby v Red County
+Bezpečnost | Technologie | Spolehlivost
 </p>
 
+
 </div>
 
 </div>
+
+
 
 
 
 <section id="group">
 
 
-<h2 class="title">
-Apex Group
+<h2>
+Apex Group - O společnosti
 </h2>
-
-
-<h3>
-O společnosti
-</h3>
-
-<br>
 
 
 <p class="text">
@@ -243,11 +286,7 @@ Součástí našich služeb je také rozvoz po celém Red County, kde garantujem
 
 <br><br>
 
-Dále nabízíme hlídání a zabezpečení objektů v rámci Red County.
-
-<br><br>
-
-Naším cílem je poskytovat profesionální, dostupné a důvěryhodné služby.
+Dále nabízíme hlídání a zabezpečení objektů.
 
 </p>
 
@@ -258,16 +297,17 @@ Naším cílem je poskytovat profesionální, dostupné a důvěryhodné služby
 
 
 
+
 <section id="security">
 
 
-<h2 class="title">
+<h2>
 Apex Security
 </h2>
 
 
-
 <div class="cards">
+
 
 
 <div class="card">
@@ -279,23 +319,18 @@ Informace
 
 <p class="text">
 
-Specializujeme se na výrobu moderních lokátorů a sledovacích zařízení.
+Vyrábíme moderní lokátory a sledovací zařízení.
 
 <br><br>
 
-Naše systémy umožňují přesné určování polohy a lepší kontrolu nad majetkem.
+Naše technologie slouží k zabezpečení vozidel, objektů a důležitého majetku.
 
 <br><br>
 
-Využití:
-<br>
-• ochrana vozidel
-<br>
-• zabezpečení objektů
-<br>
-• sledování vybavení
+Důraz klademe na přesnost, kvalitu a spolehlivost.
 
 </p>
+
 
 </div>
 
@@ -303,11 +338,11 @@ Využití:
 
 
 
+
 <div class="card">
 
-
 <h3>
-Objednávka C2
+Objednávka
 </h3>
 
 
@@ -321,8 +356,9 @@ required>
 
 
 <input id="contact"
-placeholder="Kontakt (post.ic / telefonní číslo)"
+placeholder="Kontakt (post.ic / telefon)"
 required>
+
 
 
 <input id="count"
@@ -335,26 +371,29 @@ required>
 
 <select id="delivery">
 
-<option value="Normální doručení">
+<option>
 Normální doručení
 </option>
 
-<option value="Expresní doručení (+15 000$)">
+<option>
 Expresní doručení (+15 000$)
 </option>
+
 
 </select>
 
 
 
+
 <select id="payment">
 
-<option value="Kartou">
+
+<option>
 Kartou
 </option>
 
 
-<option value="Hotově (+15 000$)">
+<option>
 Hotově (+15 000$)
 </option>
 
@@ -366,6 +405,7 @@ Hotově (+15 000$)
 <button>
 Odeslat objednávku
 </button>
+
 
 
 </form>
@@ -383,10 +423,11 @@ Odeslat objednávku
 
 
 
+
 <section id="club">
 
 
-<h2 class="title">
+<h2>
 Apex Club
 </h2>
 
@@ -404,15 +445,17 @@ Sídlíme v Los Santos, u horní benzínky.
 
 
 
+
 <section id="contact">
 
 
-<h2 class="title">
+<h2>
 Kontakty
 </h2>
 
 
 <p class="text">
+
 
 <b>Vedení:</b>
 
@@ -456,6 +499,8 @@ alexander.hill@post.ic
 
 
 
+
+
 <footer>
 
 © 2026 Apex Group
@@ -465,16 +510,18 @@ alexander.hill@post.ic
 
 
 
+
+
 <script>
 
 
-const webhook = "SEM_DEJ_NOVÝ_WEBHOOK";
+const webhook = "TVŮJ_WEBHOOK";
 
 
 
 document
 .getElementById("orderForm")
-.addEventListener("submit",function(e){
+.addEventListener("submit", function(e){
 
 
 e.preventDefault();
@@ -493,6 +540,7 @@ let count =
 Number(document.getElementById("count").value);
 
 
+
 let delivery =
 document.getElementById("delivery").value;
 
@@ -508,15 +556,38 @@ count * 2000000;
 
 
 if(delivery.includes("15 000"))
-price +=15000;
+{
+
+price += 15000;
+
+}
+
 
 
 if(payment.includes("15 000"))
-price +=15000;
+{
+
+price += 15000;
+
+}
 
 
 
-let data = {
+
+fetch(webhook,{
+
+
+method:"POST",
+
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+
+body:JSON.stringify({
 
 
 username:"Apex Security",
@@ -524,69 +595,66 @@ username:"Apex Security",
 
 embeds:[{
 
-title:"📡 Nová objednávka lokátoru",
+
+title:"📡 Nová objednávka",
+
 
 color:7959612,
 
 
 fields:[
 
+
 {
 name:"👤 Jméno",
 value:name
 },
+
 
 {
 name:"📞 Kontakt",
 value:contact
 },
 
+
 {
 name:"📦 Počet kusů",
 value:count+" ks"
 },
+
 
 {
 name:"💰 Cena",
 value:price.toLocaleString()+" $"
 },
 
+
 {
 name:"🚚 Doručení",
 value:delivery
 },
+
 
 {
 name:"💳 Platba",
 value:payment
 }
 
-],
 
+]
 
-timestamp:new Date()
 
 }]
 
 
-};
-
-
-
-fetch(webhook,{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify(data)
+})
 
 
 })
 
+
 .then(()=>{
+
 
 alert("Objednávka odeslána!");
 
@@ -594,42 +662,28 @@ document
 .getElementById("orderForm")
 .reset();
 
+
 })
 
 
 .catch(()=>{
 
-alert("Chyba při odesílání.");
+
+alert("Webhook chyba");
+
 
 });
 
 
-});
-
-
-
-
-function testWebhook(){
-
-fetch("https://discord.com/api/webhooks/1531020612875849819/-oh4IV2xXSkfdl1g2uplK2HtJ9bDoS4bXesF4_iYdpKnR9DCpi0rY0Lv3ypCP1H_SIEq", {
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-
-content:"✅ Test z Apex Group webu funguje!"
-
-})
 
 });
 
-}
 
 </script>
 
+
+
+
 </body>
+
 </html>
