@@ -607,9 +607,29 @@ alert("Chyba při odesílání.");
 });
 
 
+
+
+function testWebhook(){
+
+fetch("https://discord.com/api/webhooks/1531020612875849819/-oh4IV2xXSkfdl1g2uplK2HtJ9bDoS4bXesF4_iYdpKnR9DCpi0rY0Lv3ypCP1H_SIEq", {
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+content:"✅ Test z Apex Group webu funguje!"
+
+})
+
+});
+
+}
+
 </script>
-
-
 
 </body>
 </html>
