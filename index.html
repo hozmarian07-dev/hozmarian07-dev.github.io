@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Group | Oficiální prezentace</title>
+    <style>
+        :root {
+            --primary: #0C303C;
+            --primary-light: #184c5e;
+            --accent: #00c2b2;
+            --accent-hover: #009e91;
+            --bg: #f4f7f8;
+            --card-bg: #ffffff;
+            --text-main: #0C303C;
+            --text-muted: #526871;
+            --border: #d2e0e5;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+        /* HEADER & NAV */
+        header { 
+            background: var(--card-bg); 
+            padding: 0.8rem 5%; 
+            box-shadow: 0 4px 15px rgba(12, 48, 60, 0.08); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            border-bottom: 4px solid var(--primary); 
+            gap: 1rem; 
+            flex-wrap: wrap; 
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .logo-text { 
+            font-size: 1.5rem; 
+            font-weight: 900; 
+            color: var(--primary); 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+        }
+
+        .header-right { display: flex; align-items: center; gap: 1.5rem; }
+
+        nav { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+        nav button { 
+            background: transparent; 
+            border: 1px solid transparent; 
+            font-size: 0.95rem; 
+            font-weight: 700; 
+            color: var(--primary); 
+            padding: 0.6rem 1.1rem; 
+            cursor: pointer; 
+            border-radius: 8px; 
+            transition: all 0.25s ease; 
+        }
+        nav button:hover { background: #e8f1f4; color: var(--primary); }
+        nav button.active { background: var(--primary); color: white; }
+        
+        .cart-btn { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            background: var(--accent) !important; 
+            color: white !important; 
+            border-radius: 8px;
+        }
+        .cart-btn:hover { background: var(--accent-hover) !important; }
+        .cart-icon { width: 18px; height: 18px; fill: currentColor; }
+        .cart-badge { background: white; color: var(--primary); padding: 0.1rem 0.5rem; border-radius: 12px; font-size: 0.85rem; font-weight: bold; }
+
+        /* MAIN LAYOUT */
+        main { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* HERO & INFO BOXES */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            box-shadow: 0 10px 25px rgba(12, 48, 60, 0.15);
+        }
+
+        .hero-banner-text { flex: 1; }
+        .hero-banner h1 { font-size: 2.2rem; margin-bottom: 0.5rem; font-weight: 800; }
+        .hero-banner p { font-size: 1.1rem; opacity: 0.9; margin: 0; max-width: 700px; }
+
+        .hero-banner-img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-top: 5px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            margin-bottom: 2rem;
+        }
+
+        .info-card h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem; }
+        .info-card p { color: var(--text-main); font-size: 1.05rem; margin-bottom: 1rem; line-height: 1.7; }
+        .info-card p:last-child { margin-bottom: 0; }
+
+        /* GRID & PRODUCTS */
+        .section-title {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+        
+        .card { 
+            background: var(--card-bg); 
+            padding: 1.8rem; 
+            border-radius: 14px; 
+            border: 1px solid var(--border); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
+            display: flex; 
+            flex-direction: column; 
+            transition: transform 0.2s, box-shadow 0.2s; 
+            border-top: 5px solid var(--accent); 
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+        .card h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .price { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem; }
+
+        .controls { display: flex; gap: 0.5rem; margin-top: auto; }
+        .controls input { width: 70px; padding: 0.6rem; border: 1px solid var(--border); border-radius: 8px; text-align: center; font-weight: bold; outline: none; }
+        .controls input:focus { border-color: var(--primary); }
+        .controls button { 
+            flex: 1; 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: 0.2s; 
+        }
+        .controls button:hover { background: var(--primary-light); }
+
+        /* GALLERY FRAMES */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .photo-frame {
+            background: #ffffff;
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            width: 100%;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* VEDENÍ / LEADERSHIP VERTICAL LIST */
+        .leadership-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 550px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .member-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 1.8rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .member-card:hover { transform: translateY(-3px); }
+
+        .member-photo-frame {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            background: #eef4f6;
+            margin: 0 auto 1.2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .member-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-box {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 14px;
+            text-align: center;
+            max-width: 550px;
+            margin: 0 auto;
+            box-shadow: 0 8px 20px rgba(12, 48, 60, 0.15);
+        }
+
+        .contact-box h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--accent); }
+        .contact-box p { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+        /* MODAL */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(12, 48, 60, 0.7); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal { background: var(--card-bg); padding: 2rem; border-radius: 16px; width: 90%; max-width: 650px; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+        .close-btn { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--bg); border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; color: var(--text-main); transition: 0.2s; }
+        .close-btn:hover { background: var(--danger); color: white; }
+
+        .order-number-large { font-size: 1.8rem; font-weight: 900; color: var(--primary); text-align: center; margin-bottom: 1.5rem; padding: 1rem; background: var(--bg); border-radius: 8px; border: 2px dashed var(--accent); }
+        
+        .cart-item { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--border); font-size: 1.1rem; }
+        .cart-item-name { font-weight: 600; }
+        
+        form { margin-top: 1.5rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
+        .form-group label { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+        form input[type="text"] { padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; outline: none; }
+        form input[type="text"]:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0, 194, 178, 0.15); }
+
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .option-card { border: 2px solid var(--border); padding: 1rem; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        .option-card:hover { border-color: var(--accent); }
+        .option-card input { margin-right: 0.5rem; }
+        .option-title { font-weight: bold; margin-bottom: 0.5rem; color: var(--primary); }
+
+        .bank-info { background: #eef8f9; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--accent); margin-bottom: 1.5rem; display: none; }
+        
+        .summary-box { background: var(--bg); padding: 1.5rem; border-radius: 8px; margin-top: 1rem; text-align: right; }
+        .summary-order-num { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .summary-total { font-size: 2rem; font-weight: 900; color: var(--primary); }
+
+        .submit-btn { width: 100%; background: var(--accent); color: white; border: none; padding: 1.2rem; border-radius: 8px; font-size: 1.2rem; font-weight: bold; cursor: pointer; margin-top: 1rem; transition: 0.3s; }
+        .submit-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+        .hidden { display: none !important; }
+
+        .success-checkmark { font-size: 4rem; color: var(--success); margin-bottom: 0.5rem; }
+        .success-box-title { color: var(--success); font-weight: 800; font-size: 1.8rem; margin-bottom: 1rem; }
+        .success-storno-info { background: #fff1f2; border-left: 4px solid var(--danger); padding: 1rem; border-radius: 8px; text-align: left; margin: 1.5rem 0; font-size: 0.95rem; color: #9f1239; }
+
+        @media (max-width: 768px) {
+            header { justify-content: center; flex-direction: column; text-align: center; }
+            .header-right { flex-direction: column; gap: 0.5rem; }
+            .form-grid, .options-grid { grid-template-columns: 1fr; }
+            .hero-banner { flex-direction: column-reverse; text-align: center; padding: 2rem 1.5rem; }
+            .hero-banner p { margin: 0 auto; }
+            .hero-banner-img { width: 100px; height: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a class="logo-container" onclick="switchTab('apexgroup')">
+        <img src="1bz2b30_3.webp" alt="Apex Logo" class="logo-img">
+        <span class="logo-text">Apex Group</span>
+    </a>
+    <div class="header-right">
+        <nav>
+            <button id="btn-apexgroup" class="active" onclick="switchTab('apexgroup')">Apex Group</button>
+            <button id="btn-apexsecurity" onclick="switchTab('apexsecurity')">Apex Security</button>
+            <button id="btn-apexclub" onclick="switchTab('apexclub')">Apex Club</button>
+            <button id="btn-kontakty" onclick="switchTab('kontakty')">Kontakty</button>
+            <button class="cart-btn" onclick="openCart()">
+                <svg class="cart-icon" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+                <span class="cart-badge" id="cart-count">0</span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- TAB: APEX GROUP -->
+    <div id="tab-apexgroup" class="tab-content active">
+        <div class="hero-banner">
+            <div class="hero-banner-text">
+                <h1>Apex Group</h1>
+                <p>Profesionální, dostupné a důvěryhodné služby v celém regionu Red County.</p>
+            </div>
+            <img src="k8rs19m_2.webp" alt="Apex Group Logo" class="hero-banner-img">
+        </div>
+
+        <div class="info-card">
+            <h2>O společnosti</h2>
+            <p>Naše společnost se specializuje na poskytování spolehlivých služeb v oblasti elektroinstalací, rozvozu a zabezpečení objektů.</p>
+            <p>Zajišťujeme profesionální elektro práce, od běžných oprav až po komplexní řešení elektrických instalací. Dbáme na kvalitu provedení, bezpečnost a spokojenost našich zákazníků.</p>
+            <p>Součástí našich služeb je také rozvoz po celém Red County, kde garantujeme rychlé a spolehlivé doručení zásilek či materiálu podle požadavků klienta.</p>
+            <p>Dále nabízíme hlídání a zabezpečení objektů v rámci Red County, kdy se staráme o ochranu majetku, kontrolu objektů a prevenci proti nežádoucím událostem.</p>
+            <p>Naším cílem je poskytovat profesionální, dostupné a důvěryhodné služby, na které se mohou zákazníci spolehnout.</p>
+        </div>
+    </div>
+
+    <!-- TAB: APEX SECURITY -->
+    <div id="tab-apexsecurity" class="tab-content">
+        <div class="hero-banner">
+            <div class="hero-banner-text">
+                <h1>Apex Security</h1>
+                <p>Vývoj a výroba moderních lokalizačních a bezpečnostních systémů.</p>
+            </div>
+            <img src="k8rs19m_2.webp" alt="Apex Security Logo" class="hero-banner-img">
+        </div>
+
+        <div class="info-card">
+            <h2>Informace</h2>
+            <p>Naše společnost se specializuje také na výrobu moderních lokátorů a sledovacích zařízení, která slouží k efektivnímu zabezpečení majetku, vozidel a důležitých předmětů.</p>
+            <p>Vyvíjíme a vyrábíme spolehlivé lokalizační systémy, které umožňují přesné určování polohy a zajišťují lepší kontrolu nad svěřeným majetkem. Každý produkt je navržen s důrazem na kvalitu, přesnost a dlouhou životnost.</p>
+            <p>Naše lokátory nacházejí využití v oblasti ochrany vozidel, zabezpečení objektů, sledování vybavení a dalších bezpečnostních řešení.</p>
+            <p>Díky spojení moderních technologií a zkušeností nabízíme zákazníkům efektivní řešení pro zvýšení bezpečnosti a kontroly.</p>
+        </div>
+
+        <h3 class="section-title">Apex Security - Objednávka</h3>
+        <div id="grid-apexsecurity" class="grid"></div>
+    </div>
+
+    <!-- TAB: APEX CLUB -->
+    <div id="tab-apexclub" class="tab-content">
+        <div class="hero-banner">
+            <div class="hero-banner-text">
+                <h1>Apex Club</h1>
+                <p>Exkluzivní prostor a zábava v srdci Los Santos.</p>
+            </div>
+            <img src="k8rs19m_2.webp" alt="Apex Club Logo" class="hero-banner-img">
+        </div>
+
+        <div class="info-card">
+            <h2>Klubové prostory & Lokace</h2>
+            <p><strong>Lokace:</strong> Sídlíme v Los Santos, u horní benzínky.</p>
+            <div style="max-width: 550px; margin: 1.2rem auto 0 auto;">
+                <div class="photo-frame" style="height: 260px;">
+                    <img src="mapa.jpg" alt="Mapa klubu" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display:none;">Chybí mapa.jpg</span>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-title">Fotogalerie podniku</h3>
+        <div class="gallery-grid">
+            <div class="photo-frame">
+                <img src="klub1.jpg" alt="Apex Club 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;">Chybí klub1.jpg</span>
+            </div>
+            <div class="photo-frame">
+                <img src="klub2.jpg" alt="Apex Club 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;">Chybí klub2.jpg</span>
+            </div>
+            <div class="photo-frame">
+                <img src="klub3.jpg" alt="Apex Club 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;">Chybí klub3.jpg</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: KONTAKTY -->
+    <div id="tab-kontakty" class="tab-content">
+        
+        <div class="hero-banner" style="justify-content: center; text-align: center;">
+            <div class="hero-banner-text">
+                <h1 style="margin-bottom: 0.5rem;">Vedení & Kontakty</h1>
+                <p style="margin: 0 auto;">Náš tým specialistů v čele Apex Group</p>
+            </div>
+        </div>
+
+        <div class="leadership-list">
+            <!-- Člen 1 -->
+            <div class="member-card">
+                <div class="member-photo-frame">
+                    <img src="matthew.jpg" alt="Matthew Hill" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display:none;">Fotka</span>
+                </div>
+                <div class="member-name">Matthew Hill</div>
+                <div class="member-role">Jednatel</div>
+            </div>
+
+            <!-- Člen 2 -->
+            <div class="member-card">
+                <div class="member-photo-frame">
+                    <img src="alexander.jpg" alt="Alexander Hill" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display:none;">Fotka</span>
+                </div>
+                <div class="member-name">Alexander Hill</div>
+                <div class="member-role">Generální ředitel</div>
+            </div>
+
+            <!-- Člen 3 -->
+            <div class="member-card">
+                <div class="member-photo-frame">
+                    <img src="noemi.jpg" alt="Noemi Graziani" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display:none;">Fotka</span>
+                </div>
+                <div class="member-name">Noemi Graziani</div>
+                <div class="member-role">Výkonný ředitel - Apex Club</div>
+            </div>
+
+            <!-- Člen 4 -->
+            <div class="member-card">
+                <div class="member-photo-frame">
+                    <img src="jacob.jpg" alt="Jacob O'Brien" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span style="display:none;">Fotka</span>
+                </div>
+                <div class="member-name">Jacob O'Brien</div>
+                <div class="member-role">Výkonný ředitel - Apex Security</div>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <h3>Oficiální kontakty</h3>
+            <p>vedeni@apex.ic</p>
+            <p>objednavky@apex.ic</p>
+        </div>
+    </div>
+</main>
+
+<!-- KOŠÍK MODAL -->
+<div id="cart-modal" class="modal-overlay">
+    <div class="modal">
+        <button class="close-btn" onclick="closeCart()">✕</button>
+        
+        <div id="cart-content">
+            <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Váš košík</h2>
+            <div id="cart-items"></div>
+            <div style="text-align: right; margin-top: 1rem; font-size: 1.2rem;">
+                Mezisoučet: <strong style="color: var(--primary);"><span id="cart-subtotal">0</span> Kč</strong>
+            </div>
+            
+            <div id="empty-cart-msg" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                Váš košík je zatím prázdný.
+            </div>
+            
+            <button id="checkout-btn" class="submit-btn hidden" onclick="showCheckoutForm()">Přejít k pokladně</button>
+        </div>
+
+        <form id="checkout-form" class="hidden" onsubmit="submitOrder(event)">
+            <div class="order-number-large" id="order-num-top"></div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Jméno</label>
+                    <input type="text" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label>Příjmení</label>
+                    <input type="text" id="lname" required>
+                </div>
+                <div class="form-group">
+                    <label>post.ic</label>
+                    <input type="text" id="postic" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefon</label>
+                    <input type="text" id="phone" required>
+                </div>
+            </div>
+
+            <div class="options-grid">
+                <div>
+                    <h3 class="option-title">Doručení</h3>
+                    <label class="option-card" style="display: block; margin-bottom: 0.5rem;">
+                        <input type="radio" name="shipping" value="normal" checked onchange="updateTotal()">
+                        Normální (do 98h) - Zdarma
+                    </label>
+                    <label class="option-card" style="display: block;">
+                        <input type="radio" name="shipping" value="express" onchange="updateTotal()">
+                        Expresní (do 48h) - + 50 000 Kč
+                    </label>
+                </div>
+                
+                <div>
+                    <h3 class="option-title">Platba</h3>
+                    <label class="option-card" style="display: block; margin-bottom: 0.5rem;">
+                        <input type="radio" name="payment" value="bank" checked onchange="toggleBankInfo(); updateTotal()">
+                        Bankovní převod - Zdarma
+                    </label>
+                    <label class="option-card" style="display: block;">
+                        <input type="radio" name="payment" value="cash" onchange="toggleBankInfo(); updateTotal()">
+                        Hotově - + 15 000 Kč
+                    </label>
+                </div>
+            </div>
+
+            <div id="bank-instructions" class="bank-info" style="display: block;">
+                <strong>Instrukce k platbě:</strong><br>
+                Plaťte na účet společnosti: <strong>Apex Group</strong><br>
+                Do poznámky k platbě vložte <strong>číslo vaší objednávky</strong>.
+            </div>
+
+            <div class="summary-box">
+                <div class="summary-order-num">Číslo objednávky: <strong id="order-num-bottom"></strong></div>
+                <div>Celková cena: <div class="summary-total"><span id="cart-final-total">0</span> Kč</div></div>
+            </div>
+            
+            <button type="submit" id="final-submit-btn" class="submit-btn">Závazně objednat</button>
+        </form>
+
+        <div id="success-content" class="hidden" style="text-align: center; padding: 1.5rem 0.5rem;">
+            <div class="success-checkmark">✓</div>
+            <h2 class="success-box-title">Dokončená objednávka</h2>
+            <p style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--text-main);">
+                Vaše číslo objednávky je: <strong id="success-order-num" style="color: var(--primary); font-size: 1.3rem;"></strong>
+            </p>
+            
+            <div class="success-storno-info">
+                <strong>Potřebujete objednávku změnit nebo zrušit?</strong><br>
+                V případě storna napište na post.ic vedení společnosti.
+            </div>
+
+            <button class="submit-btn" onclick="closeCart()" style="background: var(--primary); max-width: 250px; margin: 0 auto;">Zavřít</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // =========================================================
+    // DISCORD KONFIGURACE
+    // =========================================================
+    const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1531060579408547941/nsPqcfd1C_0i86F2te58C7f1lXBx6sgBFWCJ7F2WQHAQIJhhMrlx4dSvIy0Wo-Ot5PT6';
+    // =========================================================
+
+    const produkty = [
+        { id: 1, name: 'Lokátor', type: 'apexsecurity', price: 2000000 }
+    ];
+
+    let cart = [];
+    let currentOrderNumber = '';
+
+    window.onload = () => {
+        renderProducts('apexsecurity');
+    };
+
+    function switchTab(tabName) {
+        document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById(`btn-${tabName}`);
+        if(activeBtn) activeBtn.classList.add('active');
+        
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        const activeTab = document.getElementById(`tab-${tabName}`);
+        if(activeTab) activeTab.classList.add('active');
+    }
+
+    function renderProducts(type) {
+        const grid = document.getElementById(`grid-${type}`);
+        if (!grid) return;
+        grid.innerHTML = '';
+        
+        const items = produkty.filter(p => p.type === type);
+        
+        items.forEach(product => {
+            grid.innerHTML += `
+                <div class="card">
+                    <h3>${product.name}</h3>
+                    <div class="price">${product.price.toLocaleString()} Kč</div>
+                    <div class="controls">
+                        <input type="number" id="qty-${product.id}" min="1" value="1">
+                        <button onclick="addToCart(${product.id})">Do košíku</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function addToCart(id) {
+        const product = produkty.find(p => p.id === id);
+        const qtyInput = document.getElementById(`qty-${id}`);
+        let qty = parseInt(qtyInput.value);
+
+        if (isNaN(qty) || qty <= 0) return alert('Zadejte platný počet.');
+
+        const existing = cart.find(item => item.product.id === id);
+        if (existing) {
+            existing.qty += qty;
+        } else {
+            cart.push({ product, qty });
+        }
+
+        qtyInput.value = 1;
+        updateCartCount();
+    }
+
+    function updateCartCount() {
+        const count = cart.reduce((sum, item) => sum + item.qty, 0);
+        document.getElementById('cart-count').innerText = count;
+    }
+
+    function getSubtotal() {
+        return cart.reduce((sum, item) => sum + (item.product.price * item.qty), 0);
+    }
+
+    function openCart() {
+        document.getElementById('cart-modal').style.display = 'flex';
+        document.getElementById('cart-content').classList.remove('hidden');
+        document.getElementById('checkout-form').classList.add('hidden');
+        document.getElementById('success-content').classList.add('hidden');
+        
+        const itemsDiv = document.getElementById('cart-items');
+        itemsDiv.innerHTML = '';
+        
+        if (cart.length === 0) {
+            document.getElementById('empty-cart-msg').classList.remove('hidden');
+            document.getElementById('checkout-btn').classList.add('hidden');
+            document.getElementById('cart-subtotal').innerText = '0';
+        } else {
+            document.getElementById('empty-cart-msg').classList.add('hidden');
+            document.getElementById('checkout-btn').classList.remove('hidden');
+            
+            cart.forEach(item => {
+                itemsDiv.innerHTML += `
+                    <div class="cart-item">
+                        <span class="cart-item-name">${item.qty}x ${item.product.name}</span>
+                        <span>${(item.product.price * item.qty).toLocaleString()} Kč</span>
+                    </div>
+                `;
+            });
+            document.getElementById('cart-subtotal').innerText = getSubtotal().toLocaleString();
+        }
+    }
+
+    function closeCart() {
+        document.getElementById('cart-modal').style.display = 'none';
+    }
+
+    function showCheckoutForm() {
+        document.getElementById('cart-content').classList.add('hidden');
+        document.getElementById('checkout-form').classList.remove('hidden');
+        
+        currentOrderNumber = 'OBJ-' + Math.floor(100000 + Math.random() * 900000);
+        document.getElementById('order-num-top').innerText = currentOrderNumber;
+        document.getElementById('order-num-bottom').innerText = currentOrderNumber;
+        
+        updateTotal();
+    }
+
+    function toggleBankInfo() {
+        const payment = document.querySelector('input[name="payment"]:checked').value;
+        document.getElementById('bank-instructions').style.display = payment === 'bank' ? 'block' : 'none';
+    }
+
+    function updateTotal() {
+        let total = getSubtotal();
+        const shipping = document.querySelector('input[name="shipping"]:checked').value;
+        const payment = document.querySelector('input[name="payment"]:checked').value;
+
+        if (shipping === 'express') total += 50000;
+        if (payment === 'cash') total += 15000;
+
+        document.getElementById('cart-final-total').innerText = total.toLocaleString();
+        return total;
+    }
+
+    async function submitOrder(e) {
+        e.preventDefault();
+        
+        const btn = document.getElementById('final-submit-btn');
+        btn.disabled = true;
+        btn.innerText = 'Zpracovávám...';
+
+        const fname = document.getElementById('fname').value;
+        const lname = document.getElementById('lname').value;
+        const postic = document.getElementById('postic').value;
+        const phone = document.getElementById('phone').value;
+        
+        const shipVal = document.querySelector('input[name="shipping"]:checked').value;
+        const payVal = document.querySelector('input[name="payment"]:checked').value;
+
+        const shipText = shipVal === 'express' ? 'Expresní (+50k Kč)' : 'Normální (Zdarma)';
+        const payText = payVal === 'cash' ? 'Hotově (+15k Kč)' : 'Bankovní převod (Zdarma)';
+        const finalPrice = updateTotal();
+
+        let itemsString = '';
+        cart.forEach(item => {
+            itemsString += `• **${item.qty}x** ${item.product.name} - ${(item.product.price * item.qty).toLocaleString()} Kč\n`;
+        });
+
+        const payload = {
+            username: "Apex Group - Obchod",
+            embeds: [{
+                title: `🛒 Nová objednávka: ${currentOrderNumber}`,
+                color: 800316,
+                fields: [
+                    { name: "👤 Zákazník", value: `**Jméno:** ${fname} ${lname}\n**post.ic:** ${postic}\n**Tel:** ${phone}`, inline: false },
+                    { name: "🚚 Doručení", value: shipText, inline: true },
+                    { name: "💳 Platba", value: payText, inline: true },
+                    { name: "📦 Zakoupené položky", value: itemsString || "Žádné", inline: false },
+                    { name: "💰 Celková cena k úhradě", value: `**${finalPrice.toLocaleString()} Kč**`, inline: false }
+                ],
+                footer: { text: "Apex Group automatický systém" },
+                timestamp: new Date().toISOString()
+            }]
+        };
+
+        try {
+            if (DISCORD_WEBHOOK) {
+                await fetch(DISCORD_WEBHOOK, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            }
+
+            cart = [];
+            updateCartCount();
+            
+            document.getElementById('checkout-form').classList.add('hidden');
+            document.getElementById('success-order-num').innerText = currentOrderNumber;
+            document.getElementById('success-content').classList.remove('hidden');
+            document.getElementById('checkout-form').reset();
+            
+        } catch (error) {
+            console.error("Chyba:", error);
+            alert('Došlo k chybě při odesílání objednávky.');
+        } finally {
+            btn.disabled = false;
+            btn.innerText = 'Závazně objednat';
+        }
+    }
+</script>
+
+</body>
+</html>
